@@ -1,0 +1,23 @@
+- name: Check if Docker is installed
+  command: docker -v
+  register: docker_check
+  changed_when: false
+  failed_when: docker_check.rc != 0
+
+- name: Check if Kind is installed
+  command: kind version
+  register: kind_check
+  changed_when: false
+  failed_when: kind_check.rc != 0
+
+- name: Check if Helm is installed
+  command: helm version --short
+  register: helm_check
+  changed_when: false
+  failed_when: helm_check.rc != 0
+
+- name: Check if kubectl is installed
+  command: kubectl version --client
+  register: kubectl_check
+  changed_when: false
+  failed_when: kubectl_check.rc != 0

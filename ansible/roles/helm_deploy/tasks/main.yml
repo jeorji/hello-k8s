@@ -1,0 +1,9 @@
+- name: Deploy Helm release
+  kubernetes.core.helm:
+    name: "{{ helm_release_name }}"
+    chart_ref: "{{ helm_chart_path }}"
+    release_namespace: "{{ helm_namespace }}"
+    create_namespace: true
+    values: "{{ lookup('file', helm_values_path) | from_yaml }}"
+    state: present
+    atomic: true

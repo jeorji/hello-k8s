@@ -1,0 +1,13 @@
+- name: Manage Kind Cluster
+  hosts: localhost
+  vars:
+    kind_cluster_name: kind-cluster
+  roles:
+    - role: kind_setup
+      when: cluster_state == "present"
+    - role: ingress_setup
+      when: cluster_state == "present"
+    - role: helm_deploy
+      when: cluster_state == "present"
+    - role: kind_destroy
+      when: cluster_state == "absent"

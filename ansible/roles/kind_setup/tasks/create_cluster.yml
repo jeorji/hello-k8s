@@ -1,0 +1,8 @@
+- name: Check if Kind cluster exists
+  command: kind get clusters
+  register: kind_clusters
+  changed_when: false
+
+- name: Create Kind cluster if not present
+  command: kind create cluster --config={{ role_path }}/files/kind-config.yaml --name {{ kind_cluster_name }}
+  when: kind_cluster_name not in kind_clusters.stdout

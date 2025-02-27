@@ -1,0 +1,4 @@
+helm_release_name: hello-k8s-app
+helm_namespace: hello-k8s
+helm_chart_path: "../helm/hello-k8s-chart"
+helm_values_path: "../helm/hello-k8s-chart/values.yaml"

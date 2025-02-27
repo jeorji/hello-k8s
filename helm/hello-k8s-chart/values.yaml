@@ -1,0 +1,16 @@
+appLabel: hello-k8s-backend
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: "stable-alpine"
+  pullPolicy: IfNotPresent
+
+ingress:
+  enabled: true
+  host: hello.local
+
+service:
+  type: ClusterIP
+  port: 80

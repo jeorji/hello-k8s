@@ -1,0 +1,5 @@
+- name: Check dependencies
+  import_tasks: check_dependencies.yml
+
+- name: Start Kind cluster
+  import_tasks: create_cluster.yml
